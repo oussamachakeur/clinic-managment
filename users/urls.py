@@ -15,6 +15,9 @@ urlpatterns = [
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', include(router.urls)),
+    
+    
+    
     path('doctors/' , views.DoctorsListVS.as_view() , name= 'doctorList'),
     path('doctors/<int:pk>' ,  views.DoctorProfileVS.as_view() , name='doctorProfile'),
     

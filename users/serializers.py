@@ -26,8 +26,14 @@ class CustomUserSerializer(serializers.ModelSerializer):
             role=role,
             status=status
         )
-
         return user
+    
+class CustomUserSerializerEdit(serializers.ModelSerializer):
+
+    class Meta:
+        model = CustomUser
+        fields = ['id', 'username', 'email', 'role' , 'status']
+    
     
 class AuthTokenSerializer(serializers.Serializer):
     """Serializer for the user auth token."""

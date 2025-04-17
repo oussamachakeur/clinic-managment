@@ -2,8 +2,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from core.models import Patient, Doctor, Receptionist
 from django.db.models import Count
+from core import permissions
 
 class AdminStatsView(APIView):
+    permission_classes=[permissions.IsSuperUserOnly]
     def get(self, request):
         total_patients = Patient.objects.count()
         total_doctors = Doctor.objects.count()
